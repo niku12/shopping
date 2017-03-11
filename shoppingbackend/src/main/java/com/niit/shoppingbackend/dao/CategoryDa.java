@@ -9,5 +9,5 @@ public interface CategoryDa {
 	public void edit(Category category);
 	public void delete(int id);
   public Category getCategory(int id);
-  public List getAllCategory();	  
+  public List<?> getAllCategory();	  
 }

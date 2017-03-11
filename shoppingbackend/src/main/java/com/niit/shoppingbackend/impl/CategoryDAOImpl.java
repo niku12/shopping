@@ -32,7 +32,7 @@ return query.getResultList();
 	public boolean add(Category category) {
 		// TODO Auto-generated method stub
 		try {
-	 		sessionFactory.getCurrentSession().persist(category);
+	 		sessionFactory.getCurrentSession().save(category);
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();

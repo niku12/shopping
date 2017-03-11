@@ -93,6 +93,7 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.193</version>
 		</dependency>
+<!-- spring dependency -->
 
 		<dependency>
 			<groupId>org.hibernate</groupId>

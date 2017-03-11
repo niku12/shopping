@@ -9,11 +9,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Product {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY  )
+@GeneratedValue(strategy=GenerationType.IDENTITY  )
 private int id;
 private String name;
 private int price;
-private boolean enable;
+private boolean enable=true;
 
 
 public int getId() {

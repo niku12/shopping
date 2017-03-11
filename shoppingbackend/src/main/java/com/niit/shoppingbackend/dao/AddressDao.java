@@ -9,7 +9,7 @@ public interface AddressDao {
 	public boolean add(Address address);
 	 	
 	 List<Address>list();
-	 User get(int id);
+	 Address get(int id);
 	 boolean update(Address address);
 	 boolean delete(Address address);
 	  

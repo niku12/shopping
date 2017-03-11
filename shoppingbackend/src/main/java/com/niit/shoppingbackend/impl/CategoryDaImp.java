@@ -18,7 +18,7 @@ public class CategoryDaImp implements CategoryDa{
 	@Override
 	public void add(Category category) {
 		// TODO Auto-generated method stub
-		session.getCurrentSession().persist(category);
+		session.getCurrentSession().save(category);
 	}
 
 	@Override

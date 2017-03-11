@@ -28,7 +28,7 @@ public class HibernateConfig {
 	private final static String DATABASE_USERNAME = "sa";
 	private final static String DATABASE_PASSWORD = "";
 
-	@Bean
+	@Bean(name="dataSource")
 	public DataSource getDataSourse() {
 		BasicDataSource dataSource = new BasicDataSource();
 
@@ -65,7 +65,7 @@ public class HibernateConfig {
 
 	}
 	//for image upload
-	/* @Bean(name="multipartResolver") 
+/*	 @Bean(name="multipartResolver") 
 	    public CommonsMultipartResolver getResolver() throws IOException{
 	        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
 	         
@@ -75,8 +75,8 @@ public class HibernateConfig {
 	        //You may also set other available properties.
 	         
 	        return resolver;
-	    }*/
-
+	    }
+*/
 
 
 }

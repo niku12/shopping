@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.shoppingbackend.dao.UserDAO;
+import com.niit.shoppingbackend.dto.Address;
 import com.niit.shoppingbackend.dto.User;
 
 public class UserTestCase {
@@ -24,14 +25,21 @@ public class UserTestCase {
 		userDAO=(UserDAO) context.getBean("userDAO");
 	}
 	
-	/*@Test
+	@Test
 	public void testAddUser() {
 		user = new User();
 		user.setName("abc");
 		user.setRole("supplier");
+		user.setPassword("pass");
+		Address add1=new Address();
+		add1.setBilling("done");
+		add1.setCity("noida");
+		add1.setPin("1234");
+		add1.setShipping("done");
+		user.getAddresslist().add(add1);
 		//assertEquals("Successfull added a category inside the table", true, userDAO.add(user));
        assertEquals("successfully",true,userDAO.add(user));
-	}*/
+	}
 	
 	/*@Test
 	public void testget()
@@ -49,13 +57,13 @@ public class UserTestCase {
 	
 	}*/
 	
-	@Test
+/*	@Test
 	public void testlistcategory()
 	{
 		
 		 assertEquals("successfully",1,userDAO.list().size());
 	
-	}
+	}*/
 	
 	
 	

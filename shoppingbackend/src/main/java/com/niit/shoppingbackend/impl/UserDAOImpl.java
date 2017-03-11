@@ -12,7 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.User;
 @Repository("userDAO")
-@Transactional 
+@Transactional(noRollbackFor = Exception.class)
+
 public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private SessionFactory sessionfactory;
@@ -21,9 +22,10 @@ public class UserDAOImpl implements UserDAO {
     
     static{
     	User user=new User();
-    	user.setId(1);
+    	user.setUid(1);
     	user.setName("abc");
     	user.setRole("supplier");
+    	
     	useres.add(user);
     	
     	
@@ -34,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean add(User user) {
 		try{
 			
-		sessionfactory.getCurrentSession().persist(user);	
+		sessionfactory.getCurrentSession().save(user);	
 			
 		 return true;	
 		}catch(Exception e){e.printStackTrace();}

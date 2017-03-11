@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingbackend.dao.ProductDao;
 import com.niit.shoppingbackend.dto.Product;
-import com.niit.shoppingbackend.dto.User;
 @Repository("productdao")
-public class ProductDaoImpl implements ProductDao {
+@Transactional
+public  class ProductDaoImpl implements ProductDao {
 	
 	@Autowired
 	SessionFactory sessionfactory;
@@ -29,11 +29,11 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	@Transactional
+	
 	public boolean save(Product product) {
 		// TODO Auto-generated method stub
 		try{
-			sessionfactory.getCurrentSession().persist(product);
+			sessionfactory.getCurrentSession().save(product);
 			return true;
 		}catch(HibernateException e){
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public boolean delete(Product product) {
-		product.setEnable(false);
+		product.setEnable(false);;
 		try{
 			
 			sessionfactory.getCurrentSession().update(product);	
@@ -60,14 +60,7 @@ public class ProductDaoImpl implements ProductDao {
 			return false;
 	}
 
-	@Override
-	public Product get(String id) {
-		// TODO Auto-generated method stub
-		return sessionfactory.getCurrentSession().get(Product.class, Integer.valueOf(id));
-
-		
-	}
-
+	
 	@Override
 	public List<Product> list() {
 		
@@ -77,6 +70,12 @@ public class ProductDaoImpl implements ProductDao {
 		
 		return query.getResultList();
 
+	}
+
+	@Override
+	public Product get(int id) {
+		// TODO Auto-generated method stub
+		return sessionfactory.getCurrentSession().get(Product.class, Integer.valueOf(id));
 	}
 
 }

@@ -18,14 +18,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
-
-
-
-
-
-
 @Entity
-
 public class Category{
 	/*private field*/
 	@Id

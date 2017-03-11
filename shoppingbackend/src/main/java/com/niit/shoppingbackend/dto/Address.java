@@ -1,24 +1,34 @@
 package com.niit.shoppingbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity 
-public class Address {
+public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int id;
+	int aid;
 	String billing;
 	String shipping;
 	String city;
 	String pin;
-	public int getId() {
-		return id;
+	@ManyToOne
+	@NotFound(action=NotFoundAction.IGNORE)
+	private User user;
+
+	public int getAid() {
+		return aid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setAid(int aid) {
+		this.aid = aid;
 	}
 	public String getBilling() {
 		return billing;
@@ -44,11 +54,17 @@ public class Address {
 	public void setPin(String pin) {
 		this.pin = pin;
 	}
+	public User getUser() {
+	return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", billing=" + billing + ", shipping=" + shipping + ", city=" + city + ", pin="
+		return "Address [aid=" + aid + ", billing=" + billing + ", shipping=" + shipping + ", city=" + city + ", pin="
 				+ pin + "]";
 	}
 	
-
+	
 }
