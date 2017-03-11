@@ -11,8 +11,10 @@
 	<properties>
 		<javaee.version>7.0</javaee.version>
 		<spring.version>4.3.6.RELEASE</spring.version>
+		
 	</properties>
 	<dependencies>
+
 		<!-- linking the backend project -->
 		<dependency>
 			<groupId>com.niit</groupId>
@@ -60,6 +62,30 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		
+			<!-- 1)web flow -->
+	<!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-webflow -->
+<dependency>
+    <groupId>org.springframework.webflow</groupId>
+    <artifactId>spring-webflow</artifactId>
+    <version>2.4.2.RELEASE</version>
+</dependency>
+	<!-- spring security -->
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+<dependency>
+<groupId>org.springframework.security</groupId>
+<artifactId>spring-security-config</artifactId>
+<version>4.2.2.RELEASE</version>
+</dependency>
+
+<dependency>
+<groupId>org.springframework.security</groupId>
+<artifactId>spring-security-taglibs</artifactId>
+<version>4.2.2.RELEASE</version>
+</dependency>
+
+
+	<!-- end of spring security -->
 	</dependencies>
 	<build>
 		<plugins>
@@ -70,9 +96,7 @@
 				<configuration>
 					<source>1.8</source>
 					<source>1.8</source>
-
 				</configuration>
-
 			</plugin>
 		</plugins>
 		<finalName>shopping2</finalName>

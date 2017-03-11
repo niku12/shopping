@@ -12,12 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.shoppingbackend.dao.CategoryDAO;
 import com.niit.shoppingbackend.dto.Category;
 
-
-
-
-
-
-
 @Controller
 public class ProductController {
 	

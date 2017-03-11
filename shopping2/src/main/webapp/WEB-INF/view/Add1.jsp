@@ -32,7 +32,10 @@
 			<tr>
 					<td align="center">Product Id :</td>
 					<td><form:input type="text" path="id" id="id" /></td><font color="green"> </font>
+				  <div class="has-error">
+				  
 				  <form:errors path="id"/>
+				  </div>
 				</tr>
 				
 				
@@ -40,7 +43,9 @@
 			<tr>
 					<td align="center">Product name :</td>
 					<td><form:input type="text" path="name" id="name" /></td>
+					<div class="has-error">
 					  <form:errors path="name"/>
+					  </div>
 				</tr>
 				
 		<!-- 	<tr>
@@ -53,7 +58,9 @@
 			<tr>
 					<td align="center">Product desc :</td>
 					<td><form:input type="text" path="desc" id="desc" /></td>
+					<div class="has-error">
 					  <form:errors path="desc"/>
+					  </div>
 				</tr>
                <div class="form-group">
 					<label for="image">Image Upload</label>
