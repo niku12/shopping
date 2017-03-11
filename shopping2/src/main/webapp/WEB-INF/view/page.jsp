@@ -42,7 +42,7 @@
 	
 	
 		<!-- nav bar -->
-	<%@include file="./shared1/navbar.jsp" %>
+	
 	
 	<!-- carousel -->
 	

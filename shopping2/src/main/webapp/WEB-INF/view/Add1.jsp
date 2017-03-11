@@ -19,7 +19,8 @@
 </head>
 <body>
 <!-- adding header -->
-<%@include file="./shared1/navbar1.jsp" %>
+<%@include file="./shared1/log.jsp" %>
+
 
 <div class="container">
 

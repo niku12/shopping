@@ -10,19 +10,19 @@
 	<http pattern="/resources/**" security="none" />
 	<!-- Security for the rest of my mappings -->
 	<http>
-		<intercept-url pattern="/admin/**" access="hasAuthority('ADMIN')" />
-		<intercept-url pattern="/customer/**" access="hasAuthority('CUSTOMER')" />
+		<intercept-url pattern="/admin/**" access="hasAuthority('admin')" />
+		<intercept-url pattern="/customer/**" access="hasAuthority('customer')" />
 		<intercept-url pattern="/supplier/**" access="hasAuthority('SUPPLIER')" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/"
 				authentication-failure-url="/login?error" />
-			<logout logout-success-url="/"/>
+			<logout logout-success-url="/" />
 			<csrf disabled="true"/>
 	</http>
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="SELECT name, password, enabled FROM user WHERE name = ?"
+				users-by-username-query="SELECT name, password, enable FROM user WHERE name = ?"
 				authorities-by-username-query="SELECT name, role FROM user WHERE name = ?" />
 		</authentication-provider>
 	</authentication-manager>
