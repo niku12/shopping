@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingbackend.dao.CategoryDAO;
+import com.niit.shoppingbackend.dao.ProductDao;
 import com.niit.shoppingbackend.dto.Category;
+import com.niit.shoppingbackend.dto.Product;
+
+
 
 @Controller
 public class ProductController {
-	
-	
-	
+	@Autowired
+	private ProductDao product;
+	@Autowired
+	private ProductDao product2;
 		@Autowired
 		private CategoryDAO productdao1;
 		@RequestMapping("/all/data")
@@ -38,6 +43,18 @@ public class ProductController {
 		
 			return mv;
 		}
-
-
+		@RequestMapping("cart/all/data")
+		public @ResponseBody List<Product> getAllProductview()
+		{
+			
+			return product2.list();
+		}
+	
+		@RequestMapping("/Productv")
+		public ModelAndView produc(){
+			ModelAndView mv=new ModelAndView("Productv");
+			return mv;
+		}
+		
+		
 }

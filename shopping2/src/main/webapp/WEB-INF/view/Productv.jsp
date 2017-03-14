@@ -17,7 +17,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/resources/css" var="css"/>
 <spring:url value="/resources/js" var="js"/>
-<spring:url value="/resources/image" var="images"/>
+<spring:url value="/resources/images" var="images"/>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="${css}/bootstrap.css" />
 <link rel="stylesheet" href="${css}/style.css" />
@@ -37,32 +37,49 @@
 </style>
 </head>
 <body>
-<!-- adding header -->
-<%@include file="./shared1/log.jsp" %>
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="vertical-align">
+			<a class="navbar-brand" href="#"></a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="${contextRoot}/index">Home</a></li>
+			<li><a href="${contextRoot}/about">About Us </a></li>
+		</ul>
+
+	</div>
+	</nav>
 
 
-<div class="container">
-		<table id="ta" class="table table-condensed table-hover">
+	<div class="container">
+		<table id="ta1" class="table table-condensed table-hover">
 			<thead>
 				<tr>
 					<th>Product</th>
 					<th>name</th>
 					<th>price</th>
 					<th>Order</th>
-					<th>VIEW</th>
-					
+					<th>&#160;</th>
+					<th>&#567;</th>
 				</tr>
 			</thead>
 		</table>
-		
+		<%--	<c:forEach items="${pro}" var="product">
+					<tr>
+						<td><img src="assert/image/images67.jpg"
+							style="height: 20px; width: 20px" /></td>
+						<td><a href="#" class="list-group-item">${product.name}</a></td>
+						<td><input type="submit" value="AddToCart" /></td>
+				</c:forEach> --%>
+
 
 		<script type="text/javascript">
 			$(function() {
-				$('#ta')
+				$('#ta1')
 						.DataTable(
 								{
 									ajax : {
-										url : '/shopping2/all/data',
+										url : '/shopping2/cart/all/data',
 										dataSrc : ''
 									},
 
@@ -75,37 +92,17 @@
 												data : 'name'
 											},
 											{
-												data : 'desc'
+												data : 'price'
 											},
-											{
-												data : null,
-
-												mRender : function(data, type,
-														row) {
-													return '<img src="/shopping2/resources/image/'+data.id+'.jpg" width="25px" height="25px">';
-												}
-
-											},
-											{
+																						{
 												data : null,
 												mRender : function(data, type,
 														row) {
-													return '<a href="/shopping2/elec1/'+row.id+'" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="">view</a>';
+													return '<a href="/shopping2/customer/elec4/'+row.id+'" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="">ADD TO CART</a>';
 												}
 
 											}
-											/*,
-											/*{
-												data : null,
-												mRender : function(data, type,
-														row) {
-													return '<a href="/shopping2/cart/elec2/'+row.id+'/cart" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=""></a>';
-												}
 
-											}*/
-
-											
-											
 									]
 
 								});
@@ -115,7 +112,13 @@
 	</div>
 
 
-<!-- footer -->>
-<%@include file="./shared1/footer.jsp" %>
+
+	<footer class="container-fluid bg-4 text-center">
+	<p>
+		This Site deals with Good Quality Products <a
+			href="https://www.gmail.com">www.Star.com</a>
+	</p>
+	</footer>
 
 </body>
+</html>

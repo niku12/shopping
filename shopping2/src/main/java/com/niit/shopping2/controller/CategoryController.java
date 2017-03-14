@@ -73,12 +73,13 @@ public class CategoryController {
 				catego.add(category);
 				productResult=new Category();
 				//image upload
-				File file=new File(request.getRealPath("assets//image//"));
+				File file=new File(request.getRealPath("asset//image//"));
 				/*System.out.println(file.exists());*/
 				if(!file.exists()){
 					file.mkdirs();
 				}
-				File storagepath=new File(request.getRealPath("assets//images//")+File.separator+category.getName()+".jpg");
+				File storagepath=new File(request.getRealPath("asset//image//")+File.separator+category.getName()+".jpg");
+				System.out.println(storagepath);
 				try{
 				byte[] imagebytes=category.getFiles().getBytes();
 				System.out.println(imagebytes);

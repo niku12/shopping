@@ -24,7 +24,7 @@ public class User implements Serializable{
 	private String password;
 	
 	private String role;
-	boolean enable;
+	boolean enable=true;
 	@OneToMany(cascade=CascadeType.ALL)
 //	@JoinTable(joinColumns=@JoinColumn(name="aid"),inverseJoinColumns=@JoinColumn(name="uid"))
 	private Collection<Address> addresslist=new ArrayList<>();
