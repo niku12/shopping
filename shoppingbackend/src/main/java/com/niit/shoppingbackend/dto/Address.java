@@ -13,6 +13,7 @@ import org.hibernate.annotations.NotFoundAction;
 
 @Entity 
 public class Address implements Serializable {
+	private static final long serialVersionUID=678L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int aid;

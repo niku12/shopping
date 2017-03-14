@@ -21,6 +21,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @ComponentScan(basePackages = { "com.niit.shoppingbackend" })
 @EnableTransactionManagement
 // change the below based on the dbms
+
 public class HibernateConfig {
 	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/test";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
@@ -54,6 +55,7 @@ public class HibernateConfig {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
+		properties.put("hibernate.hbm2ddl.auto","update");
 		return properties;
 	}
 
@@ -65,7 +67,7 @@ public class HibernateConfig {
 
 	}
 	//for image upload
-/*	 @Bean(name="multipartResolver") 
+	/* @Bean(name="multipartResolver") 
 	    public CommonsMultipartResolver getResolver() throws IOException{
 	        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
 	         
@@ -76,7 +78,7 @@ public class HibernateConfig {
 	         
 	        return resolver;
 	    }
-*/
 
+*/
 
 }

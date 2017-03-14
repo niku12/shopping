@@ -31,13 +31,14 @@ public class UserTestCase {
 		user.setName("abc");
 		user.setRole("supplier");
 		user.setPassword("pass");
-		Address add1=new Address();
+		user.setAddress("noida");
+/*		Address add1=new Address();
 		add1.setBilling("done");
 		add1.setCity("noida");
 		add1.setPin("1234");
 		add1.setShipping("done");
-		user.getAddresslist().add(add1);
-		//assertEquals("Successfull added a category inside the table", true, userDAO.add(user));
+	user.getAddresslist().add(add1);
+		//assertEquals("Successfull added a category inside the table", true, userDAO.add(user));*/
        assertEquals("successfully",true,userDAO.add(user));
 	}
 	

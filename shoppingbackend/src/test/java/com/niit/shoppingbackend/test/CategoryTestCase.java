@@ -16,7 +16,7 @@ public class CategoryTestCase {
 	@Autowired
 	private static CategoryDAO categoryDAO;
 	private Category category;
-	private static ProductDao productdao;
+	private static ProductDao productdao1;
 	private Product product;
 
 	@BeforeClass
@@ -25,7 +25,7 @@ public class CategoryTestCase {
 		context.scan("com.niit.shoppingbackend");
 		context.refresh();
 		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
-      productdao	=(ProductDao)context.getBean("productdao");
+      productdao1	=(ProductDao)context.getBean("productdao1");
 	
 	
 	}

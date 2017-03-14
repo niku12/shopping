@@ -20,6 +20,7 @@ import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 @Entity
 public class Category{
+	private static final long serialVersionUID=67781L;
 	/*private field*/
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY  )

@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Product {
+	private static final long serialVersionUID=67785L;
 	@Id
 @GeneratedValue(strategy=GenerationType.IDENTITY  )
 private int id;
@@ -15,7 +16,15 @@ private String name;
 private int price;
 private boolean enable=true;
 
+private String address;
 
+
+public String getAddress() {
+	return address;
+}
+public void setAddress(String address) {
+	this.address = address;
+}
 public int getId() {
 	return id;
 }
@@ -42,7 +51,9 @@ public void setEnable(boolean enable) {
 }
 @Override
 public String toString() {
-	return "Product [id=" + id + ", name=" + name + ", price=" + price + ", enable=" + enable + "]";
+	return "Product [id=" + id + ", name=" + name + ", price=" + price + ", enable=" + enable + ", address=" + address
+			+ "]";
 }
+
 
 }

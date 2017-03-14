@@ -12,6 +12,8 @@ public interface AddressDao {
 	 Address get(int id);
 	 boolean update(Address address);
 	 boolean delete(Address address);
+	 List<Address> getAddress(User user);
+	
 	  
 
 }

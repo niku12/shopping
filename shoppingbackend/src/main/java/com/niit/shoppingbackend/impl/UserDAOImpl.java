@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.User;
 @Repository("userDAO")
-@Transactional(noRollbackFor = Exception.class)
+@Transactional
 
 public class UserDAOImpl implements UserDAO {
 	@Autowired
@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean add(User user) {
 		try{
 			
-		sessionfactory.getCurrentSession().save(user);	
+		sessionfactory.getCurrentSession().persist(user);	
 			
 		 return true;	
 		}catch(Exception e){e.printStackTrace();}
@@ -82,4 +82,19 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 
 	}
+
+	@Override
+	public User getuserbyname(String name) {
+	//	Query query= sessionfactory.getCurrentSession().createQuery("FROM User WHERE name=:name");
+//		query.setParameter("username",name );
+	//User users=(User)	query.getSingleResult();
+	String sele="FROM User WHERE name= :name";
+	return sessionfactory.getCurrentSession().createQuery(sele,User.class).setParameter("name",name).getSingleResult();
+		
+		
+		
+		
+	}
+
+	
 }

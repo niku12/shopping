@@ -2,16 +2,19 @@ package com.niit.shoppingbackend.impl;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingbackend.dao.AddressDao;
 import com.niit.shoppingbackend.dto.Address;
+import com.niit.shoppingbackend.dto.User;
 
-@Repository("addressdao")
+@Repository("addressDao")
 @Transactional(noRollbackFor = Exception.class)
 public class AddressDaoImp implements AddressDao {
 
@@ -72,6 +75,14 @@ public class AddressDaoImp implements AddressDao {
 		}
 		
 	
+	}
+
+	@Override
+	public List<Address> getAddress(User user) {
+		// TODO Auto-generated method stub
+	Query q=	sessionfactory.getCurrentSession().createQuery("From Address Where User_id=:id");
+	q.setParameter("id", user.getUid());
+		return q.getResultList();
 	}
 
 }

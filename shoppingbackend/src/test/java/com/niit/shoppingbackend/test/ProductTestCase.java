@@ -14,25 +14,26 @@ import com.niit.shoppingbackend.dto.Product;
 public class ProductTestCase {
 	private static AnnotationConfigApplicationContext context;
 	@Autowired
-	private  static ProductDao productdao;
+	private  static ProductDao productdao1;
 	private Product product;
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.niit.shoppingbackend");
 		context.refresh();
-		productdao=(ProductDao) context.getBean("productdao");
+		productdao1=(ProductDao) context.getBean("productdao1");
 	}
-	/*@Test
+	@Test
 	public void testAddUser() {
 		product = new Product();
 		product.setName("laptop");
 		product.setPrice(34);
-		
-		 assertEquals("successfully",true,productdao.save(product));
+		//product.setQuantity(5);
+		product.setAddress("noida");
+		 assertEquals("successfully",true,productdao1.save(product));
 		//assertEquals("Successfull added a category inside the table", true, userDAO.add(user));
        
-	}*/
+	}
 	/*@Test
 	public void testget(){ 
 		product=productdao.get(3);
@@ -64,10 +65,10 @@ public class ProductTestCase {
 		 assertEquals("successfully",true,productdao.delete(product));	 
 	}*/
 	
-	@Test 
+	/*@Test 
 	public void testlistdat()
 	{
 		 assertEquals("successfully",1,productdao.list().size());	 
-	}
+	}*/
 	
 }

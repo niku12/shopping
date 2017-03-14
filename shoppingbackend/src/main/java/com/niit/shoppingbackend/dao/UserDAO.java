@@ -9,10 +9,12 @@ public interface UserDAO {
 	
 	public boolean add(User user);
 	 	 	
- List<User>list();
- User get(int id);
- boolean update(User user);
- boolean delete(User user);
+ public List<User>list();
+ public User get(int id);
+ public boolean update(User user);
+ public boolean delete(User user);
+ public User getuserbyname(String user);
+ 
   
  
 }

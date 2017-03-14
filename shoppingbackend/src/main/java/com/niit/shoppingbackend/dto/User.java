@@ -1,46 +1,70 @@
 package com.niit.shoppingbackend.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class User implements Serializable{
+	private static final long serialVersionUID=67783L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY  )
 	@Column
 	private int uid;
-	@NotNull
+	@NotBlank(message="Please enter name")
 	private String name;
-	@NotNull
+	@NotBlank(message="Please enter password")
 	private String password;
 	
-	private String role;
+	private String role="customer";
 	boolean enable=true;
-	@OneToMany(cascade=CascadeType.ALL)
-//	@JoinTable(joinColumns=@JoinColumn(name="aid"),inverseJoinColumns=@JoinColumn(name="uid"))
-	private Collection<Address> addresslist=new ArrayList<>();
+	public String Address;
+  // @OneToMany(cascade = CascadeType.PERSIST, mappedBy="user",fetch=FetchType.LAZY)
+//   private Set<Address> addresslist=new HashSet<>();
 	
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="user",fetch=FetchType.EAGER)
+	private Cart cart;
+	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	/*public void setAddresslist(Set<Address> addresslist) {
+		this.addresslist = addresslist;
+	}*/
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Collection<Address> getAddresslist() {
+/*	public Collection<Address> getAddresslist() {
 		return addresslist;
-	}
-	public void setAddresslist(Collection<Address> addresslist) {
-		this.addresslist = addresslist;
-	}
+	}*/
+	
 	public int getUid() {
 		return uid;
 	}
@@ -68,7 +92,10 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", name=" + name + ", password=" + password + ", role=" + role + ", enable="
-				+ enable + ", addresslist=" + addresslist + "]";
+				+ enable + ", Address=" + Address + ", cart=" + cart + "]";
 	}
+	
+	
+	
 	
 }
