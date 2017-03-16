@@ -2,24 +2,22 @@ package com.niit.shoppingbackend.dto;
 
 
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
-public class Category{
+public class Category implements Serializable{
 	private static final long serialVersionUID=67781L;
 	/*private field*/
 	@Id
@@ -34,6 +32,7 @@ public class Category{
 	
 	//multipart
 	@Transient
+	@JsonIgnore
 	private MultipartFile files;
 
 	public MultipartFile getFiles() {

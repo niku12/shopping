@@ -1,5 +1,7 @@
 package com.niit.shoppingbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 	private static final long serialVersionUID=67785L;
 	@Id
 @GeneratedValue(strategy=GenerationType.IDENTITY  )

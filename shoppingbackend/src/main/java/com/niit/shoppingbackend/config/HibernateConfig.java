@@ -67,7 +67,7 @@ public class HibernateConfig {
 
 	}
 	//for image upload
-	/* @Bean(name="multipartResolver") 
+	 @Bean(name="multipartResolver") 
 	    public CommonsMultipartResolver getResolver() throws IOException{
 	        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
 	         
@@ -79,6 +79,6 @@ public class HibernateConfig {
 	        return resolver;
 	    }
 
-*/
+
 
 }
