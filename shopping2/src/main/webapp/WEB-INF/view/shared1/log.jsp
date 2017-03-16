@@ -22,13 +22,13 @@
 			<security:authorize access="hasAuthority('admin')">
 			<li class="active"><a href="${contextRoot}/Admin">Admin </a></li>
 			</security:authorize>
-				<li class="active"><a href="${contextRoot}/Productv">Product</a></li>
-				<li><a href="${contextRoot}/electro">Electronic</a></li>
-				<li><a href="#">Furniture</a></li>
+				 <li class="active"><a href="${contextRoot}/Productv">Product</a></li>
+				<li><a href="${contextRoot}/electro">ProductView</a></li>
+				<li><a href="#"></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-		<li><a href="${contextRoot}/cart/cart"></span>Cart</a></li>
 		
+           		
 			<li><a href="${contextRoot}/Register"><span
 					class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			<security:authorize access="isAnonymous()">

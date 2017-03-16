@@ -22,24 +22,12 @@
 				
 				<sf:form modelAttribute="user" ><br />
 					<sf:label path="name">UserName:</sf:label>
-					<sf:input path="name" /><br /><br/>
+					<sf:input path="name" /><br />
 					<!-- to display validation messages -->
 					
-					<sf:label path="password">Password: </sf:label>
-					<sf:input type="password" path="password" /><br /><br/>
-	                    
-	
-					<sf:label for="role" path="role">Role</sf:label>
-
-								<sf:select path="role" id="role" class="form-control">
-
-									<sf:option value="admin"></sf:option>
-									<sf:option value="customer"></sf:option>
-
-								</sf:select>
-					
-					
-					<input name="_eventId_submit" type="submit" value="Submit" /><br />
+					<sf:label path="price">Price: </sf:label>
+					<sf:input path="price" /><br />
+	                				<input name="_eventId_submit" type="submit" value="Submit" /><br />
 				</sf:form>
 			</fieldset>
 		</div>

@@ -36,15 +36,21 @@
 </style>
 </head>
 <body>
-
+ <h2>
+				
+			</h2>
+        
 <div class="container">
+
+         
 		<table id="ta" class="table table-condensed table-hover">
 			<thead>
+			<tr><a href="home" align="right">Home</a></tr>
 				<tr>
 					<th>Product</th>
 					<th>name</th>
-					<th>Description</th>
-					<th>order</th>
+					<th>Price</th>
+					<th>Order</th>
 										 
 				</tr>
 			</thead>

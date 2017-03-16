@@ -11,13 +11,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table width="120%" height="120%">
+  <tr><td width="120%" height="120%"></td></tr>
 
-	<table>
+</table>
+
+	<center><table>
 		<tr>
+		<td><img src="/shopping2/resources/image/${product.id}.jpg" width="20%" height="20%" /></td>
 			<td>${product.id}</td>
 			<td>${product.name}</td>
 			<td>${product.desc}</td>
+			
 		</tr>
-		</table>
+		</table></center>
 </body>
 </html>

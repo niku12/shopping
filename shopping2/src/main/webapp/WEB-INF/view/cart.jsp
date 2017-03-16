@@ -41,40 +41,44 @@
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="vertical-align">
-			<a class="navbar-brand" href="#"><img src="assert/image/star.png" /></a>
+			<a class="navbar-brand" href="#"><img src="" /></a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="${contextRoot}/index">Home</a></li>
-			<li><a href="#">About Us </a></li>
+			<li><a href="${contextRoot}/about">About Us </a></li>
 		</ul>
 
 	</div>
 	</nav>
 <sf:form modelAttribute="product" ><br />
+<td><a href='${contextRoot}/Productv'><input type='button' value='Add Cart Item' class='btn btn-primary'></a></td>
 <table class="table table-hover">
 <tr>
+<th>Product id</th>
 <th>Product Name</th>
-<th>Product Price</th>
-<th>Product Quantity</th>
-
 <th></th>
 </tr>
+<c:forEach var="cartItem" items="cart">
+</c:forEach>
+  <th></th>
+
+
+
+<th></th>
+
 
 <tr>
 <td>${product.id}</td>
+
 <td>${product.name}</td>
-<td>${product.price}</td></tr>
-<tr>
-<td><a href='delete/${cartItem.id}/cartItem'><input type='button' value='Delete' class='btn btn-primary'></a></td>
 </tr>
+<tr>
+<td><a href='#'><input type='button' value='Order' class='btn btn-primary'></a></td>
+</tr>
+
 </table>
+
 </sf:form><br />
-			
-
-	
-
-
-
 	<footer class="container-fluid bg-4 text-center">
 	<p>
 		This Site deals with Good Quality Products <a

@@ -47,8 +47,8 @@
 				<tr>
 					<th>Product</th>
 					<th>name</th>
-					<th>price</th>
-					<th>Order</th>
+					<th>Price</th>
+					<th></th>
 					<th>VIEW</th>
 					
 				</tr>

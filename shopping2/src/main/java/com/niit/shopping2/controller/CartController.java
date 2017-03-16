@@ -57,10 +57,10 @@ public class CartController {
 	      // if(principal !=null)
 	       //{
 	    	   User user=usersDAO.getuserbyname(principal.getName());
-	    	  Cart cart=user.getCart();
+	    	  //Cart cart=user.getCart();
 	    	   Product product=productDAO.get(id);
-	    	   	  
-	    	/*  productDAO.save(product);
+	    	/*   	Cart cart =new Cart();  
+	    	//  productDAO.save(product);
 	    	   CartItems cartItem=new CartItems();
 	    	   cartItem.setCart(cart);
 	    	   cartItem.setProduct(product);
@@ -72,7 +72,7 @@ public class CartController {
 	    	//   cartDAO.update(cart);
 	    	   
 	    	   
-	    	 mv.addObject("object",cartItemDAO); */
+	    //	 mv.addObject("object",cartItemDAO); */
 	    	   mv.addObject("product",product);
 	    	 
 	       //}  	   

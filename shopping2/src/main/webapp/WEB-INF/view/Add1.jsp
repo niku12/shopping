@@ -1,4 +1,3 @@
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -57,15 +56,15 @@
 				
 			
 			<tr>
-					<td align="center">Product desc :</td>
+					<td align="center">Product Price :</td>
 					<td><form:input type="text" path="desc" id="desc" /></td>
 					<div class="has-error">
 					  <form:errors path="desc"/>
 					  </div>
 				</tr>
                <div class="form-group">
-					<label for="image">Image Upload</label>
-					<form:input path="imageURL" type="file"/>
+					<label for="imageURL">Image Upload</label>
+					<form:input path="imageURL" id="imageURL" type="file"/>
 					</div>
 	
 				
@@ -74,13 +73,9 @@
 					<input type="submit" class="btn btn-md btn-success" name="action" value="update" />
 			
 					<input type="submit" class="btn btn-md btn-warning" name="action" value="delete" />
-					<input type="submit" class="btn btn-md btn-danger" name="action" value="search" /></td>
+				</td>
 				</tr>
-				
 		</table>
-
-
-
 	</form:form>
 		
 		</div>
