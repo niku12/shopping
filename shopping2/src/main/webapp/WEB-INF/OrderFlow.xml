@@ -9,32 +9,34 @@
 	<!-- Executed when webFlow is triggered -->
 	<on-start>
 	<!-- demohandler is java class available through annotated Demohandler.java class.here we are calling it’s initFlow() method. -->
-	  <evaluate expression="registerHandler.initFlow()" result="flowScope.user"/>
+	  <evaluate expression="orderHandler.initFlow(currentUser.name)" result="flowScope.cart"/>
 	</on-start>
 
-	 <!-- if not specified the first view state is the starting state -->
+<view-state id="start" view="order" model="flowScope.cart">
+	   <transition on="submit" to="shippingaddress"/>
 	   
-	<!-- if not specified the first view state is the starting state -->
-	<view-state id="start" view="Order" model="flowScope.user">
-	   <transition on="submit" to="validate"/>
-	    <!--  <on-exit>
-	   <evaluate expression="registerHandler.saveUser(registerModel,user)" ></evaluate>
-	   </on-exit>-->
 	</view-state>
 
-	 
-	<action-state id="validate">
-		<evaluate expression="registerHandler.validateDetails(user,messageContext)"></evaluate>
-		<transition on="success" to="confirmDetails" />
-		<transition on="failure" to="start" />
-	</action-state>
-	
-	<view-state id="confirmDetails" view="Displayconfirm" model="flowScope.user">
-		<transition on="edit" to="start" />
-		<transition on="submit" to="welcome" />
+
+		<view-state id="shippingaddress" view="Shipping" model="flowScope.cart">
+	   <transition on="submit" to="bankdetails"/>
+	   
+	</view-state>
+
+<view-state id="bankdetails" view="Bank" model="flowScope.cart">
+		
+		<transition on="submit" to="confirmdetails" />
+		<transition on="error" to="start" />
 	</view-state>
 	
-		<end-state id="welcome" view="page" />
+	 
+	
+	<view-state id="confirmDetails" view="success" model="flowScope.cart">
+		
+		
+	</view-state>
+	
+		<end-state id="success" view="success" />
 	<end-state id="toCancel" view="page"/>
    <end-state id="toHome" view="externalRedirect:contextRelative:/"/>
 

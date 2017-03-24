@@ -23,6 +23,7 @@
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
 		<!-- here the id is mapped to invoke this flow -->
 		<webflow:flow-location id="Register" path="Registerflow.xml" />
+		<webflow:flow-location id="customer/Orderdetails" path="OrderFlow.xml" />
 	</webflow:flow-registry>
 	
 <webflow:flow-builder-services id="flowBuilderServices"

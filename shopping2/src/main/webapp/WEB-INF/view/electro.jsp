@@ -47,9 +47,11 @@
 				<tr>
 					<th>Product</th>
 					<th>name</th>
+					<th>description</th>
 					<th>Price</th>
 					<th></th>
 					<th>VIEW</th>
+					<th>ADD TO CART</th>
 					
 				</tr>
 			</thead>
@@ -74,8 +76,12 @@
 											{
 												data : 'name'
 											},
+											
 											{
 												data : 'desc'
+											},
+											{
+												data : 'price'
 											},
 											{
 												data : null,
@@ -94,6 +100,16 @@
 												}
 
 											}
+											,
+											{
+	                                         data : null,
+                                            	mRender : function(data, type,
+			                                     row) {
+		                                       return '<a href="/shopping2/customer/elec4/'+row.id+'" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="">ADD TO CART</a>';
+	                                             }
+
+                                            }
+
 											/*,
 											/*{
 												data : null,

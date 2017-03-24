@@ -11,10 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingbackend.dao.CartDAO;
 import com.niit.shoppingbackend.dao.CartItemDAO;
+import com.niit.shoppingbackend.dao.CategoryDa;
 import com.niit.shoppingbackend.dao.ProductDao;
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.Cart;
 import com.niit.shoppingbackend.dto.CartItems;
+import com.niit.shoppingbackend.dto.Category;
 import com.niit.shoppingbackend.dto.Product;
 import com.niit.shoppingbackend.dto.User;
 
@@ -22,159 +24,106 @@ import com.niit.shoppingbackend.dto.User;
 @RequestMapping
 public class CartController {
 	
-//--------------------------------------------------------------------------------------------------------------
+
 	@Autowired
 	UserDAO usersDAO;
 	@Autowired
 	CartItemDAO cartItemDAO;
 	@Autowired
-	ProductDao productDAO;
+	CategoryDa productDAO;
 	@Autowired
 	CartDAO cartDAO;
 	
 	
 	
 	
-/*@RequestMapping("customer/elec4/{id}")
-	public String customerplay(Principal principal,@PathVariable("id") int id,ModelMap model){
-		if(principal !=null)
-		{
-			User user=usersDAO.getuserbyname(principal.getName());
-			Cart cart=user.getCart();
-			model.addAttribute("cartdetails",true);
-			model.addAttribute("cartItems",cartItemDAO.list());
-			model.addAttribute("cartcount",cart.getCartItemCount());
-		}
-		return "cart";
-	}*/
 	
 	@RequestMapping("customer/elec4/{id}")
 	public ModelAndView addToCart(Principal principal,@PathVariable("id") Integer id,ModelMap model)
 	{
-		ModelAndView mv=new ModelAndView("cart");
+		ModelAndView mv=new ModelAndView("electro");
 		
-	//	System.out.println(usersDAO.getuserbyname(principal.getName()));
-	      // if(principal !=null)
-	       //{
 	    	   User user=usersDAO.getuserbyname(principal.getName());
-	    	  //Cart cart=user.getCart();
-	    	   Product product=productDAO.get(id);
-	    	/*   	Cart cart =new Cart();  
-	    	//  productDAO.save(product);
-	    	   CartItems cartItem=new CartItems();
-	    	   cartItem.setCart(cart);
-	    	   cartItem.setProduct(product);
-	    	   cartItem.setQuantity(1);
-	    	   cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
-	    	   cart.setGrandtotal(cart.getGrandtotal() + cartItem.getTotalPrice());
-	    	   cart.setCartItemCount(cart.getCartItemCount() + 1);
-	    	   cartItemDAO.save(cartItem);
-	    	//   cartDAO.update(cart);
+	    	  Cart cart=user.getCart();
+	    	     	  
+	    		    if(cart==null){
+	    	cart=new Cart();
+	    	user.setCart(cart);
+	    	cart.setUser(user);
+	       usersDAO.update(user);
+	    }
+	    	   cart=user.getCart();
+	    	   Category product=productDAO.getCategory(id);
+	    	   CartItems cartItem= (CartItems) cartItemDAO.get(id);
+	    	     if(cartItem==null)
+	    	    	 cartItem=new CartItems();
+	    	     
+	  cartItem.setCart(cart); 
+	  cartItem.setProduct(product);
+	  cartItem.setQuantity(cartItem.getQuantity()+1);
+	  System.out.println("cart item quantity " + cartItem.getQuantity());
+	  cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
+	  System.out.println("product id" + product.getId());
+	  cart.setGrandtotal(cart.getGrandtotal() + cartItem.getTotalPrice());
+	  System.out.println(cart.getCartItemCount()+1);
+	  cart.setCartItemCount(cart.getCartItemCount()+1);
+	  mv.addObject("customer",true);
+	  mv.addObject("addtocart",true);
+	  mv.addObject("customerClick",true);
+	  mv.addObject("cart",cartItemDAO.list(cart));
+	  cartItemDAO.save(cartItem);
+	  return mv;
+	}			
+			
+	@RequestMapping("/customer/viewCart")
+	public ModelAndView viewCustomerCart( Principal principal)
+	{
+		User user =  usersDAO.getuserbyname(principal.getName());
+		Cart cart =  user.getCart();
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("userClickViewCart", true);
+		model.addObject("cartId", cart.getId());
+	    model.addObject("cartItems", cartItemDAO.list(cart));
+		return model;
+	
+	}
 	    	   
-	    	   
-	    //	 mv.addObject("object",cartItemDAO); */
-	    	   mv.addObject("product",product);
-	    	 
-	       //}  	   
-	    	   
-	       return mv;  
-			 
+	@RequestMapping("/customer/{id}/removeCartItem")
+	public ModelAndView customerRemoveCartItem(@PathVariable Integer id , Principal principal)
+	{
+		User user =  usersDAO.getuserbyname(principal.getName());
+		Cart cart =  user.getCart();
+		CartItems cartItem =  cartItemDAO.get(id);
 		
-			
-			
-  
-	    	   
-	    	   
-	    	 
+		cartItemDAO.deletecartitemById(id);
+		
+		
+		ModelAndView model = new ModelAndView("page");
+		
+		model.addObject("cartId", cart.getId());
+	    model.addObject("cartItems", cartItemDAO.list(cart));
+        model.addObject("userClickViewCart", true);
+		
+		
+	    return model;
+	}	   
+	  
+	@RequestMapping("/customer/checkout")
+	public ModelAndView order( Principal principal)
+	{
+		User user =  usersDAO.getuserbyname(principal.getName());
+		Cart cart =  user.getCart();
+		ModelAndView model = new ModelAndView("order");
+		model.addObject("userClickOrder", true);
+		model.addObject("cartId", cart.getId());
+	    model.addObject("cartItems", cartItemDAO.list(cart));
+		return model;
+	
+	}
+	
+	
 	       }
 		
-	//	User user=usersDAO.getuserbyname(principal.getName());
-		
-		/*Cart cart=user.getCart();
-		if(cart==null)
-		{
-			cart=new Cart();
-			user.setCart(cart);
-			cart.setUser(user);
-			usersDAO.update(user);
-		}*/
-	/*	cart=user.getCart();
-		Product product=productDAO.get(id);
-		CartItems cartItem=(CartItems)cartItemDAO.get(id);
-		if(cartItem==null)
-		      cartItem=new CartItems();
-		     cartItem.setCart(cart);
-		     cartItem.setProduct(product);
-		     cartItem.setQuantity(cartItem.getQuantity()+1);
-		     System.out.println("cart item quantity"+ cartItem.getQuantity());
-		     cartItem.setTotalPrice(product.getPrice()*cartItem.getQuantity());
-		     System.out.println("pid"+product.getId());
-		     cart.setGrandtotal(cart.getGrandtotal()+cartItem.getTotalPrice());
-		     cart.setCartItemCount(cart.getCartItemCount()+1);
-		     mv.addObject("customer", true);
-		     mv.addObject("addtocart",true);
-		     mv.addObject("customerClick",true);
-		     mv.addObject("cart",cartItemDAO.list());
-		     cartItemDAO.save(cartItem);
-		     return mv;
-		     
-		     
-		 }*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*@RequestMapping("customer/elec4/{id}")
-	public ModelAndView addToCart(Principal principal,@PathVariable Integer id,ModelMap model)
-	{
-		ModelAndView mv=new ModelAndView("cart");
-	//	Principal p=request.get
-		System.out.println(usersDAO.getuserbyname(principal.getName()));
-		User user=usersDAO.getuserbyname(principal.getName());
-		
-		/*Cart cart=user.getCart();
-		if(cart==null)
-		{
-			cart=new Cart();
-			user.setCart(cart);
-			cart.setUser(user);
-			usersDAO.update(user);
-		}*/
-	/*	cart=user.getCart();
-		Product product=productDAO.get(id);
-		CartItems cartItem=(CartItems)cartItemDAO.get(id);
-		if(cartItem==null)
-		      cartItem=new CartItems();
-		     cartItem.setCart(cart);
-		     cartItem.setProduct(product);
-		     cartItem.setQuantity(cartItem.getQuantity()+1);
-		     System.out.println("cart item quantity"+ cartItem.getQuantity());
-		     cartItem.setTotalPrice(product.getPrice()*cartItem.getQuantity());
-		     System.out.println("pid"+product.getId());
-		     cart.setGrandtotal(cart.getGrandtotal()+cartItem.getTotalPrice());
-		     cart.setCartItemCount(cart.getCartItemCount()+1);
-		     mv.addObject("customer", true);
-		     mv.addObject("addtocart",true);
-		     mv.addObject("customerClick",true);
-		     mv.addObject("cart",cartItemDAO.list());
-		     cartItemDAO.save(cartItem);
-		     return mv;
-		     
-		     
-		 }*/
-	
-	
-	
-	
-	
-	
-}	
 	
 	
 

@@ -52,7 +52,7 @@ public class ProductController {
 	
 		@RequestMapping("/Productv")
 		public ModelAndView produc(){
-			ModelAndView mv=new ModelAndView("Productv");
+			ModelAndView mv=new ModelAndView("electro");
 			return mv;
 		}
 		

@@ -19,19 +19,24 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	sRrc="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${css}/style.css">
 <!-- style for carousel -->
- <style>
+  <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
+      width: 30%;
+      margin: 0 auto;
   }
   .bg-4 { 
       background-color: #2f2f2f;
       color: #fff;
   }
+  .carousel .item {
+  height: 300px;
+}
+
+
   </style>
  
 </head>
@@ -59,6 +64,10 @@
 	<!-- load electronic page -->
 	<c:if test="${userClickElectro ==true }">
 	<%@include file="electro.jsp" %>
+	</c:if>
+	
+	<c:if test="${userClickViewCart ==true }">
+	<%@include file="viewCart.jsp" %>
 	</c:if>
 	
 <!-- footer -->

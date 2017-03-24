@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.Address;
+import com.niit.shoppingbackend.dto.Cart;
 import com.niit.shoppingbackend.dto.User;
 
 @Component
@@ -14,9 +15,7 @@ public class RegisterHandler {
 	
 	@Autowired
 	private UserDAO userDAO;
-	/*public RegisterModel initFlow(){
-		return new RegisterModel();
-	}*/
+	
 	private Address add1;
 	private Address add2;
 	
@@ -33,7 +32,11 @@ public class RegisterHandler {
 	//	Address billing=registerModel.getBilling();
 		//set the user
 		//billing.setUser(user);
-		
+/*	Cart cart=new Cart();
+	user.setCart(cart);
+	cart.setUser(user);
+	*/
+	
 		
 	}
 	

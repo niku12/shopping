@@ -49,6 +49,7 @@
 				<tr>
 					<th>Product</th>
 					<th>name</th>
+					<th>description</th>
 					<th>Price</th>
 					<th>Order</th>
 										 
@@ -77,6 +78,10 @@
 											},
 											{
 												data : 'desc'
+											},
+											
+											{
+												data : 'price'
 											},
 											
 											{

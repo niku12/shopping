@@ -23,26 +23,22 @@
 					 the eventId to be triggered is given in "href" attribute as:
 				 -->
 				
-				<sf:form modelAttribute="user" ><br />
-					<sf:label path="name">UserName:</sf:label>
-					<sf:input path="name" /><br /><br/>
-					<!-- to display validation messages -->
+				<sf:form modelAttribute="address" ><br />
+				
+					<%-- <sf:label path="shipping">Shipping:</sf:label>
+					<sf:input path="shipping" /><br /><br/>
+					 --%>
 					
-					<sf:label path="password">Password: </sf:label>
-					<sf:input type="password" path="password" /><br /><br/>
+					<sf:label path="city">City: </sf:label>
+					<sf:input  path="city" /><br /><br/>
 	                    
 	
-					<sf:label for="role" path="role">Role</sf:label>
-
-								<sf:select path="role" id="role" class="form-control">
-
-									<sf:option value="admin"></sf:option>
-									<sf:option value="customer"></sf:option>
-
-								</sf:select>
+					<sf:label path="pin">Pin: </sf:label>
+					<sf:input  path="pin" /><br /><br/>
+	                					
 					
-					
-					<input name="_eventId_submit" type="submit" value="Submit" /><br />
+					<input name="_eventId_back" type="submit" value="Back" /><br />
+					<input name="_eventId_bank" type="submit" value="Bank" /><br />
 				</sf:form>
 			</fieldset>
 		</div>

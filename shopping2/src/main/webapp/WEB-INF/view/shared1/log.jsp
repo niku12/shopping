@@ -22,22 +22,23 @@
 			<security:authorize access="hasAuthority('admin')">
 			<li class="active"><a href="${contextRoot}/Admin">Admin </a></li>
 			</security:authorize>
-				 <li class="active"><a href="${contextRoot}/Productv">Product</a></li>
-				<li><a href="${contextRoot}/electro">ProductView</a></li>
+		
+				<li><a href="${contextRoot}/electro">Product</a></li>
 				<li><a href="#"></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 		
-           		
+     <security:authorize access="isAnonymous()">      	
 			<li><a href="${contextRoot}/Register"><span
 					class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			<security:authorize access="isAnonymous()">
-
+		</security:authorize>
+<security:authorize access="isAnonymous()">	
 				<li><a href="${contextRoot}/login"><span
 						class="glyphicon glyphicon-log-in"></span>Login</a></li>
-			</security:authorize>
+						</security:authorize>
+			
 			<security:authorize access="isAuthenticated()">
-
+                 <li><a href="${contextRoot}/customer/viewCart">View Cart</a></li>
 				<li><a href="${contextRoot}/logout"><span
 						class="glyphicon glyphicon-log-in"></span>Logout</a></li>
 			</security:authorize>

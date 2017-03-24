@@ -6,7 +6,7 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@include file="/WEB-INF/view/include.jsp"%>
+
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
@@ -48,20 +48,23 @@
 					  </div>
 				</tr>
 				
-		<!-- 	<tr>
-					<td align="center">image :</td>
-					<td><form:input type="text" path="imageURL" id="imageURL" /></td>
-					  <form:errors path="imageURL"/>
-				</tr> -->
 				
 			
 			<tr>
-					<td align="center">Product Price :</td>
+					<td align="center">Description :</td>
 					<td><form:input type="text" path="desc" id="desc" /></td>
 					<div class="has-error">
 					  <form:errors path="desc"/>
 					  </div>
 				</tr>
+				<tr>
+					<td align="center">Price :</td>
+					<td><form:input type="text" path="price" id="price" /></td>
+					<div class="has-error">
+					  <form:errors path="desc"/>
+					  </div>
+				</tr>
+            
                <div class="form-group">
 					<label for="imageURL">Image Upload</label>
 					<form:input path="imageURL" id="imageURL" type="file"/>

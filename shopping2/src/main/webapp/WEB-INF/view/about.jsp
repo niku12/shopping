@@ -38,6 +38,9 @@
 <body>
 
 <body>
+<!-- home nav -->
+	<%@include file="./shared1/log.jsp" %>
+
 <div class="container">
    <h1>About Us</h1>
   <hr/>
@@ -56,4 +59,7 @@ all brands laptop.
   </div>
    </div>
 </div>
+<!-- footer -->
+	<%@include file="./shared1/footer.jsp" %>
+
 </body>
