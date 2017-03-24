@@ -30,16 +30,17 @@ public class CategoryTestCase {
 	
 	}
 
-	/*@Test
+	@Test
 	public void testAddCategory() {
 		category = new Category();
 		category.setName("Electronic");
 		category.setDesc("this is description for laptop");
 		category.setImageURL("lap_1.png");
+		category.setPrice(78900);
 		assertEquals("Successfull added a category inside the table", true, categoryDAO.add(category));
 		
 
-	}*/
+	}
 	/*@Test
 	public void testGetCategory(){
 		category=categoryDAO.get(1);
@@ -78,7 +79,7 @@ public class CategoryTestCase {
 		
 	} */
 	
-	@Test
+	/*@Test
 	public void testcategorproduct(){
 		category=new Category();
 		category.setName("Electronics");
@@ -87,7 +88,7 @@ public class CategoryTestCase {
 		product.setPrice(60000);
 		
 		
-	}
+	}*/
 	
 	
 	

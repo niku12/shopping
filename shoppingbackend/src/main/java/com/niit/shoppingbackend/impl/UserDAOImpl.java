@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.User;
 @Repository("userDAO")
-@Transactional
 
 public class UserDAOImpl implements UserDAO {
 	@Autowired
@@ -32,11 +31,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
 	@Override
-	
+	@Transactional
 	public boolean add(User user) {
 		try{
 			
-		sessionfactory.getCurrentSession().persist(user);	
+		sessionfactory.getCurrentSession().persist(user);
 			
 		 return true;	
 		}catch(Exception e){e.printStackTrace();}
@@ -44,6 +43,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	@Transactional
 	public List<User> list() {
 		String selectactive="from User where enable = :enable";
 		Query query= sessionfactory.getCurrentSession().createQuery(selectactive);
@@ -53,16 +53,18 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	@Transactional
 	public User get(int id) {
 		// TODO Auto-generated method stub
 		return sessionfactory.getCurrentSession().get(User.class, Integer.valueOf(id));
 	}
 
 	@Override
+	@Transactional
 	public boolean update(User user) {
 		try{
 			
-			sessionfactory.getCurrentSession().persist(user);	
+			sessionfactory.getCurrentSession().saveOrUpdate(user);	
 				
 			 return true;	
 			}catch(Exception e){e.printStackTrace();}
@@ -71,6 +73,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	@Transactional
 	public boolean delete(User user) {
 		user.setEnable(false);
 		try{
@@ -84,6 +87,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	@Transactional
 	public User getuserbyname(String name) {
 	//	Query query= sessionfactory.getCurrentSession().createQuery("FROM User WHERE name=:name");
 //		query.setParameter("username",name );

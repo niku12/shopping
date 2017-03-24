@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
-public class Products implements Serializable{
+public class Category implements Serializable{
 	private static final long serialVersionUID=67781L;
 	/*private field*/
 	@Id
@@ -30,8 +30,6 @@ public class Products implements Serializable{
 	@Size(min=1,max=50)
 	private String desc;
 	private int price;
-	
-	
 	public int getPrice() {
 		return price;
 	}

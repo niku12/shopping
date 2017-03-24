@@ -50,7 +50,7 @@ public  class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public boolean delete(Product product) {
-		product.setEnable(false);;
+		product.setEnable(false);
 		try{
 			
 			sessionfactory.getCurrentSession().update(product);	

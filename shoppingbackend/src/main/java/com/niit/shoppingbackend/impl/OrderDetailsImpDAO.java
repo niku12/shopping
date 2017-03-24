@@ -1,4 +1,6 @@
-package com.niit.shoppingbackend.impl;
+/*package com.niit.shoppingbackend.impl;
+
+
 
 import java.util.List;
 
@@ -9,19 +11,22 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingbackend.dao.CartItemDAO;
+import com.niit.shoppingbackend.dao.OrderDetailsDAO;
 import com.niit.shoppingbackend.dto.Cart;
 import com.niit.shoppingbackend.dto.CartItems;
+import com.niit.shoppingbackend.dto.Order;
+import com.niit.shoppingbackend.dto.OrderDetails;
 
-@Repository("cartitemdao")
+@Repository("orderdetaildao")
 @Transactional
-public class CartItemImpDAO implements CartItemDAO{
+public class OrderDetailsImpDAO implements OrderDetailsDAO{
 	@Autowired
 	SessionFactory sessionfactory;
-    public CartItemImpDAO(SessionFactory sessionfactory){
+    public OrderDetailsImpDAO(SessionFactory sessionfactory){
     	this.sessionfactory=sessionfactory;
     }
-	@Override
-	public boolean save(CartItems cartitem) {
+	
+	public boolean save(OrderDetails cartitem) {
 		try{
 			sessionfactory.getCurrentSession().save(cartitem);
 			return true;
@@ -31,13 +36,13 @@ public class CartItemImpDAO implements CartItemDAO{
 		}
 	}
 	@Override
-	public boolean update(CartItems cartitems) {
+	public boolean update(OrderDetails cartitems) {
 		
 		sessionfactory.getCurrentSession().update(cartitems);
 		return false;
 	}
 	@Override
-	public boolean delete(CartItems cartitems) {
+	public boolean delete(OrderDetails cartitems) {
 try{
 			
 			sessionfactory.getCurrentSession().delete(cartitems);	
@@ -49,15 +54,15 @@ try{
 		
 	}
 	@Override
-	public CartItems get(int id) {
+	public OrderDetails get(int id) {
 		// TODO Auto-generated method stub
-		return sessionfactory.getCurrentSession().get(CartItems.class, Integer.valueOf(id));
+		return sessionfactory.getCurrentSession().get(OrderDetails.class, Integer.valueOf(id));
 	}
-	@Override
-	public List<CartItems> list(Cart cart) {
+	
+	public List<OrderDetails> list(Order cart) {
 		// TODO Auto-generated method stub
 				
-List<CartItems> list = sessionfactory.getCurrentSession().createQuery("from CartItems where CART_ID = :id", CartItems.class).setParameter("id", cart.getId()).getResultList();
+List<OrderDetails> list = sessionfactory.getCurrentSession().createQuery("from orderdetails where order_id = :id", OrderDetails.class).setParameter("id", Order.getId()).getResultList();
 			return list;
 		}
 	@Override
@@ -69,7 +74,14 @@ List<CartItems> list = sessionfactory.getCurrentSession().createQuery("from Cart
 		
 	}
 
+	@Override
+	public List<OrderDetails> list(OrderDetails orderdetails) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 		//return sessionfactory.getCurrentSession().createQuery("from CartItems",CartItems.class).list();
 	}
 	
 
+*/

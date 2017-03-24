@@ -7,10 +7,12 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.shoppingbackend.dao.CartItemDAO;
+import com.niit.shoppingbackend.dao.CategoryDa;
 import com.niit.shoppingbackend.dao.ProductDao;
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.Cart;
 import com.niit.shoppingbackend.dto.CartItems;
+import com.niit.shoppingbackend.dto.Category;
 import com.niit.shoppingbackend.dto.Product;
 import com.niit.shoppingbackend.dto.User;
 
@@ -18,7 +20,8 @@ public class cardtestcase {
 private static AnnotationConfigApplicationContext context;
 private static CartItemDAO cartItemDAO;
 private static UserDAO userDAO;
-private static ProductDao productDAO1;
+//private static ProductDao productDAO1;
+private static CategoryDa productdao;
 
 
 @BeforeClass
@@ -28,7 +31,8 @@ public static void init(){
 	context.refresh();
 	cartItemDAO=(CartItemDAO)context.getBean("cartitemdao");
 	userDAO=(UserDAO)context.getBean("userDAO");
-	productDAO1=(ProductDao)context.getBean("productdao1");
+	//productDAO1=(ProductDao)context.getBean("productdao1");
+	productdao=(CategoryDa)context.getBean("categoryDa");
 }
 
 /*@Test
@@ -44,18 +48,18 @@ public void testlistitem(){
 	public void testAddCartItem() {
 		
 		// get the user
-		User user = userDAO.get(1);
+		User user = userDAO.get(2);
 		// get the cart
 		Cart cart = user.getCart();
 
 		// get the product
-		Product product = productDAO1.get(1);
-		
+		//Product product = productDAO1.get(1);
+		Category product1= productdao.getCategory(140);
 		CartItems cartItem = new CartItems();
 		cartItem.setCart(cart);
-		cartItem.setProduct(product);
+		cartItem.setProduct(product1);
 		cartItem.setQuantity(2);
-		cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
+		cartItem.setTotalPrice(product1.getPrice() * cartItem.getQuantity());
 	
 		cart.setGrandtotal(cart.getGrandtotal() + cartItem.getTotalPrice());
 		cart.setCartItemCount(cart.getCartItemCount() + 1);

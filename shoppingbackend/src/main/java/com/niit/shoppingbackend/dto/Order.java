@@ -1,5 +1,9 @@
 package com.niit.shoppingbackend.dto;
 
+
+
+
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,7 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Cart implements Serializable {
+public class  Order implements Serializable {
 	
 	private static final long serialVersionUID=6778L;
 	@Id
@@ -23,7 +27,7 @@ public class Cart implements Serializable {
 	@OneToOne(cascade=CascadeType.PERSIST)
 	private User user;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="cart",fetch=FetchType.EAGER)
-	private List<CartItems> cardItems;
+	private List<OrderDetails> cardItems;
 	private int cartItemCount;
 
 	public int getCartItemCount() {
@@ -50,10 +54,10 @@ public class Cart implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public List<CartItems> getCardItems() {
+	public List<OrderDetails> getCardItems() {
 		return cardItems;
 	}
-	public void setCardItems(List<CartItems> cardItems) {
+	public void setCardItems(List<OrderDetails> cardItems) {
 		this.cardItems = cardItems;
 	}
 	

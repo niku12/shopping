@@ -1,5 +1,6 @@
 package com.niit.shoppingbackend.dto;
 
+
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 @Entity
-public class CartItems implements Serializable{
+public class OrderDetails implements Serializable{
 	public static final long serialVersionUID=67788L;
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -96,3 +97,4 @@ public String toString() {
 }
 
 }
+

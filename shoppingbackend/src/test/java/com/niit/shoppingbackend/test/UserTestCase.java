@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.shoppingbackend.dao.UserDAO;
+import com.niit.shoppingbackend.dto.Address;
 import com.niit.shoppingbackend.dto.Cart;
 import com.niit.shoppingbackend.dto.User;
 
@@ -31,10 +32,10 @@ public class UserTestCase {
 		user.setName("abc");
 		user.setRole("supplier");
 		user.setPassword("pass");
-		user.setAddress("noida");
+//		user.setAddress("noida");
 	    
 	
-/*		Address add1=new Address();
+		Address add1=new Address();
 		add1.setBilling("done");
 		add1.setCity("noida");
 		add1.setPin("1234");

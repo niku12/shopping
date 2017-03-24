@@ -33,16 +33,20 @@ public class User implements Serializable{
 	
 	private String role="customer";
 	boolean enable=true;
-	public String Address;
-  // @OneToMany(cascade = CascadeType.PERSIST, mappedBy="user",fetch=FetchType.LAZY)
-//   private Set<Address> addresslist=new HashSet<>();
+	//public String Address;
 	
-	public String getAddress() {
-		return Address;
-	}
-	public void setAddress(String address) {
-		Address = address;
-	}
+	
+  @OneToMany(cascade = CascadeType.PERSIST, mappedBy="user",fetch=FetchType.LAZY)
+   private Set<Address> addresslist=new HashSet<>();
+	   
+	
+	
+	public Set<Address> getAddresslist() {
+	return addresslist;
+}
+public void setAddresslist(Set<Address> addresslist) {
+	this.addresslist = addresslist;
+}
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="user",fetch=FetchType.EAGER)
 	private Cart cart;
 	
@@ -92,7 +96,7 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", name=" + name + ", password=" + password + ", role=" + role + ", enable="
-				+ enable + ", Address=" + Address + ", cart=" + cart + "]";
+				+ enable + ", addresslist=" + addresslist + ", cart=" + cart + "]";
 	}
 	
 	
