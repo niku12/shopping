@@ -1,12 +1,17 @@
 package com.niit.shopping2.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
+import com.niit.shoppingbackend.dao.AddressDao;
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.Address;
 import com.niit.shoppingbackend.dto.Cart;
@@ -15,10 +20,14 @@ import com.niit.shoppingbackend.dto.User;
 public class OrderHandler {
 	@Autowired
 	private UserDAO userDAO;
-	private Address add1;
+	@Autowired
+	private AddressDao addressDao;
+	private Address billingAddress;
+	private Address shippingAddress;
 	
 	public OrderHandler(){
-		 add1= new Address();
+		billingAddress= new Address();
+		shippingAddress=new Address();
 	}
 	
 	public Cart initFlow(String principle)
@@ -29,9 +38,16 @@ public class OrderHandler {
 		return cart;
 	}
 	public void saveAddress(Address address,String principle){
-		
+		System.out.println("name of the city"+address.getCity());
 		User user=userDAO.getuserbyname(principle);
-		//Address add=user.getAddresslist();
+		Set<Address> addresslist=new HashSet<>();
+		address.setUser(user);
+		addresslist.add(address);
+		user.setAddresslist(addresslist);
+		System.out.println(address.getUser().getUid());
+		addressDao.update(address);
+		userDAO.update(user);
+		
 	
 		
 	}

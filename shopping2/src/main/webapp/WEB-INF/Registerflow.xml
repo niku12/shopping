@@ -14,7 +14,7 @@
 
 	 <!-- if not specified the first view state is the starting state -->
 	   
-	<!-- if not specified the first view state is the starting state -->
+	<!-- if not specified the first view state is the starting state --> 
 	<view-state id="start" view="Register" model="flowScope.user">
 	   <transition on="submit" to="validate"/>
 	    <!--  <on-exit>
