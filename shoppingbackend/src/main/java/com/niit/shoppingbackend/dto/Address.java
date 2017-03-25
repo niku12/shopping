@@ -22,7 +22,6 @@ public class Address implements Serializable {
 	String city;
 	String pin;
 	@ManyToOne
-	@NotFound(action=NotFoundAction.IGNORE)
 	private User user;
 
 	public int getAid() {
