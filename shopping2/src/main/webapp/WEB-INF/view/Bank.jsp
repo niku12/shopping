@@ -14,10 +14,18 @@
 </head>
 <body>
 <sf:form modleAttribute="cart">
-<h2>State Bank Of India</h2>
-<h2>user name</h2>
-<h3>address</h3>
-<h3>${grandtotal}</h3>
+<table>
+<tr><td>UserName</td><td>${cart.user.name}</td></tr>
+
+<c:forEach var="address" items="${cart.user.addresslist}">
+<tr><td>city</td><td>${address.city}</td></tr>
+<tr><td>pin</td><td>${address.pin}</td></tr>
+</c:forEach>
+
+<tr><td>Garnd Totoal</td><td>${cart.grandtotal}</td></tr>
+<tr><td><input name="_eventId_submit" type="submit" value="Conform" /><br /></td></tr>
+
+</table>
 
 </sf:form>
 </body>

@@ -15,7 +15,7 @@ import com.niit.shoppingbackend.dto.Address;
 import com.niit.shoppingbackend.dto.User;
 
 @Repository("addressDao")
-@Transactional(noRollbackFor = Exception.class)
+@Transactional
 public class AddressDaoImp implements AddressDao {
 
 	@Autowired

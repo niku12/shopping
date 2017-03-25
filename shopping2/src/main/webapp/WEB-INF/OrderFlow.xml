@@ -20,7 +20,7 @@
 
 		<view-state id="shippingaddress" view="Shipping" model="address">
 	   <transition on="submit" to="bankdetails"/>
-	   <on-exit>
+	    <on-exit>
 	   <evaluate expression="orderHandler.saveAddress(address,currentUser.name)"></evaluate>
 	   </on-exit>
 	</view-state>

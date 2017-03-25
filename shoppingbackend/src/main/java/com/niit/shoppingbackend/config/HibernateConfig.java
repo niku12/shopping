@@ -23,11 +23,11 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 // change the below based on the dbms
 
 public class HibernateConfig {
-	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/test";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/market";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USERNAME = "sa";
-	private final static String DATABASE_PASSWORD = "";
+	private final static String DATABASE_PASSWORD = "sa";
 
 	@Bean(name="dataSource")
 	public DataSource getDataSourse() {

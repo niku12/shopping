@@ -38,7 +38,7 @@
 	                					
 					
 					<input name="_eventId_back" type="submit" value="Back" /><br />
-					<input name="_eventId_bank" type="submit" value="Bank" /><br />
+					<input name="_eventId_submit" type="submit" value="Bank" /><br />
 				</sf:form>
 			</fieldset>
 		</div>

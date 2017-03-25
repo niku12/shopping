@@ -36,7 +36,7 @@ public class User implements Serializable{
 	//public String Address;
 	
 	
-  @OneToMany(cascade = CascadeType.PERSIST, mappedBy="user",fetch=FetchType.LAZY)
+  @OneToMany(cascade = CascadeType.PERSIST, mappedBy="user",fetch=FetchType.EAGER)
    private Set<Address> addresslist=new HashSet<>();
 	   
 	

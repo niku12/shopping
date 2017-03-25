@@ -45,9 +45,9 @@ public class OrderHandler {
 		addresslist.add(address);
 		user.setAddresslist(addresslist);
 		System.out.println(address.getUser().getUid());
-		addressDao.update(address);
-		userDAO.update(user);
 		
+		userDAO.update(user);
+		addressDao.add(address);
 	
 		
 	}
