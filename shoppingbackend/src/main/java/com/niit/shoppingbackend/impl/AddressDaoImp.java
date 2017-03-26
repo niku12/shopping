@@ -24,7 +24,7 @@ public class AddressDaoImp implements AddressDao {
 	@Override
 	public boolean add(Address address) {
 		try{
-			sessionfactory.getCurrentSession().save(address);   
+			sessionfactory.getCurrentSession().saveOrUpdate(address);  
 		 return true;	
 		}catch(Exception e){
 			e.printStackTrace();
