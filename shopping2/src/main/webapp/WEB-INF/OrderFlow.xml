@@ -33,15 +33,29 @@
 	
 	 
 	
-	<view-state id="confirmDetails" view="success" model="flowScope.cart">
-		
+	<view-state id="confirmdetails" view="success" model="flowScope.cart">
+		<transition on="submit" to="welcome" />
 		
 	</view-state>
+
+
 	
-		<end-state id="success" view="success" />
+		<end-state id="welcome" view="page" />
 	<end-state id="toCancel" view="page"/>
    <end-state id="toHome" view="externalRedirect:contextRelative:/"/>
 
+
+
+
+
+
+
+
+	
+<!-- 		<end-state id="success" view="success" />
+	<end-state id="toCancel" view="page"/>
+   <end-state id="toHome" view="externalRedirect:contextRelative:/"/>
+-->
 
 
 	

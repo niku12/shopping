@@ -14,7 +14,7 @@
 
 	<body>
 	<h2>
-				<a href="home" align="right">Home</a>
+				<a href="/shopping2/home" align="right">Home</a>
 			</h2>
 		<div class="content">
 			<fieldset>
@@ -25,9 +25,9 @@
 				
 				<sf:form modelAttribute="address" ><br />
 				
-					<%-- <sf:label path="shipping">Shipping:</sf:label>
+					 <sf:label path="shipping">Shipping Address:</sf:label>
 					<sf:input path="shipping" /><br /><br/>
-					 --%>
+					 
 					
 					<sf:label path="city">City: </sf:label>
 					<sf:input  path="city" /><br /><br/>
@@ -37,7 +37,7 @@
 					<sf:input  path="pin" /><br /><br/>
 	                					
 					
-					<input name="_eventId_back" type="submit" value="Back" /><br />
+					
 					<input name="_eventId_submit" type="submit" value="Bank" /><br />
 				</sf:form>
 			</fieldset>

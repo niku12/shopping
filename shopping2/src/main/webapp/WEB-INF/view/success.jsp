@@ -1,5 +1,5 @@
  <h2>
-				<a href="home" align="right">Home</a>
+				<a href="/shopping2/home" align="right">Home</a>
 			</h2>
 
 
