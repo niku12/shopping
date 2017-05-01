@@ -42,8 +42,7 @@ public class CartController {
 	public ModelAndView addToCart(Principal principal,@PathVariable("id") Integer id,ModelMap model)
 	{
 		ModelAndView mv=new ModelAndView("electro");
-		
-	    	   User user=usersDAO.getuserbyname(principal.getName());
+			    	   User user=usersDAO.getuserbyname(principal.getName());
 	    	  Cart cart=user.getCart();
 	    	     	  
 	    		    if(cart==null){
@@ -52,26 +51,35 @@ public class CartController {
 	    	cart.setUser(user);
 	       usersDAO.update(user);
 	    }
-	    	   cart=user.getCart();
+	    	  
 	    	   Category product=productDAO.getCategory(id);
-	    	   CartItems cartItem= (CartItems) cartItemDAO.get(id);
-	    	     if(cartItem==null)
+	    	   CartItems cartItem= (CartItems) cartItemDAO.getCartItemWithCartAndProduct(id,cart.getId());
+	    	     if(cartItem==null){
 	    	    	 cartItem=new CartItems();
-	    	     
-	  cartItem.setCart(cart); 
-	  cartItem.setProduct(product);
+	    	    	 cartItem.setCart(cart); 
+	    	   	  cartItem.setProduct(product);
+	    	   	  cartItem.setQuantity(1);
+	    	   	  
+	    	   	  cartItem.setTotalPrice(product.getPrice() );
+	    	   	  
+	    	   	  cart.setGrandtotal(cart.getGrandtotal() + cartItem.getTotalPrice());
+	    	   	 
+	    	   	  cart.setCartItemCount(cart.getCartItemCount()+1);
+	    	   	cartItemDAO.save(cartItem);
+	    	   	System.out.println("hello");
+	    	     }else{
+	  
 	  cartItem.setQuantity(cartItem.getQuantity()+1);
-	  System.out.println("cart item quantity " + cartItem.getQuantity());
-	  cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
-	  System.out.println("product id" + product.getId());
-	  cart.setGrandtotal(cart.getGrandtotal() + cartItem.getTotalPrice());
-	  System.out.println(cart.getCartItemCount()+1);
-	  cart.setCartItemCount(cart.getCartItemCount()+1);
+	  cartItem.setTotalPrice(cartItem.getTotalPrice()+product.getPrice());
+	  cartItem.getCart().setCartItemCount(cart.getCartItemCount()+1);
+	  cartItem.getCart().setGrandtotal(cart.getGrandtotal()+product.getPrice());
+	  cartItemDAO.update(cartItem);
+	    	     }
 	  mv.addObject("customer",true);
 	  mv.addObject("addtocart",true);
 	  mv.addObject("customerClick",true);
 	  mv.addObject("cart",cartItemDAO.list(cart));
-	  cartItemDAO.save(cartItem);
+	  
 	  return mv;
 	}			
 			
@@ -110,19 +118,33 @@ public class CartController {
 	  
 	@RequestMapping("/customer/checkout")
 	public ModelAndView order( Principal principal)
+	{User user =  usersDAO.getuserbyname(principal.getName());
+	Cart cart =  user.getCart();
+	ModelAndView m1=new ModelAndView("page");
+	ModelAndView model = new ModelAndView("order");	
+		if(cart.getGrandtotal()==0)
 	{
-		User user =  usersDAO.getuserbyname(principal.getName());
-		Cart cart =  user.getCart();
-		ModelAndView model = new ModelAndView("order");
+			
+		//m1.addObject("userClickOrder",true);
+	//	m1.addObject("cartId", cart.getId());
+	
+		return m1;
+	}else
+			
 		model.addObject("userClickOrder", true);
 		model.addObject("cartId", cart.getId());
 	    model.addObject("cartItems", cartItemDAO.list(cart));
 		return model;
+		}
+	
+	
+	
+	
 	
 	}
 	
 	
-	       }
+	       
 		
 	
 	

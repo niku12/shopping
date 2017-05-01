@@ -23,7 +23,19 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<style>
+ .carousel-indicators{
+ position:absolute;
+ bottom:10px;
+ left:50%;
+ z-index:15;
+ width:60%;
+ padding-left:0;
+ margin-left:-30%;
+ text-align:center;
+ }
+ 
+</style>
 </head>
 
 <body>
@@ -31,7 +43,7 @@
       <!-- Page Content -->
 	<div class="container">
   <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:100%;align:center" >
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:100%;height:100;align:center" >
     <!-- Indicators -->
     <ol class="carousel-indicators" >
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -44,20 +56,20 @@
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <img src="${image}/137.jpg"  alt="Chania" width="50px" height="50px">
+        <img src="${image}/137.jpg"  alt="Chania" width="150px" height="150px">
         <div class="carousel-caption">
           
         </div>
       </div>
 
       <div class="item">
-        <img src="${image}/1.jpg" alt="Chania"  width="50px" height="50px">
+        <img src="${image}/1.jpg" alt="Chania"  width="150px" height="150px">
         <div class="carousel-caption">
            </div>
       </div>
     
       <div class="item">
-        <img src="${image}/139.jpg" alt="Flower"  width="50px" height="50px">
+        <img src="${image}/139.jpg" alt="Flower"  width="150px" height="150px">
         <div class="carousel-caption">
           </div>
       </div>
@@ -81,21 +93,7 @@
       
     <!-- /.container -->
 
-    <div class="container">
-																																																			
-        <hr>
-
-        
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
+   
 </body>
 
 </html>

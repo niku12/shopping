@@ -14,7 +14,9 @@
 <head>
 
 <!DOCTYPE head PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<style>
+ 
+</style>
 </head>
 <body>
 <!-- adding header -->
@@ -82,9 +84,9 @@
 	</form:form>
 		
 		</div>
-		</div class="col-lg-2">
+		<div class="col-lg-2">
 		</div>
-	 	</div class="container">
+	 	<div class="container">
 		<%@include file="electro1.jsp" %>
 		</div>
 		</div> 

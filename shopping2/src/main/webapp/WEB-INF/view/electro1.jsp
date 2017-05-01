@@ -33,6 +33,7 @@
 	background-color: #2f2f2f;
 	color: #fff;
 }
+ 
 </style>
 </head>
 <body>
@@ -82,6 +83,7 @@
 											
 											{
 												data : 'price'
+												
 											},
 											
 											{

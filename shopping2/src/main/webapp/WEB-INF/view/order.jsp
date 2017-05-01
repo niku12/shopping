@@ -30,21 +30,14 @@
 <link rel="stylesheet" href="${css}/style.css">
 <!-- style for carousel -->
  <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
   .bg-4 { 
       background-color: #2f2f2f;
       color: #fff;
   }
+  
   </style>
  
 	
-	<!-- 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Spring Mvc WebFlow Demo</title>
-		<link href="style.css" rel="stylesheet" type="text/css" />-->
 	</head>
 	<body>
 	<%@include file="./shared1/log.jsp" %>
@@ -85,7 +78,7 @@
       <th><b><h3>Grand Total :</h3></th>
       <th><h3>${grandtotal}</b></h3></th>
     </tr>
-    		<tr><td>	<input name="_eventId_submit" type="submit" value="Submit" /></td></tr>
+    		<tr><td>	<input name="_eventId_submit" class="btn btn-info" type="submit" value="Submit" /></td></tr>
   
   </tbody>
   </table></center>

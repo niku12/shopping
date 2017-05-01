@@ -23,7 +23,6 @@ public class PageController {
 		ModelAndView mv=new ModelAndView("about");
 		mv.addObject("title","About Us");
 		mv.addObject("userClickAbout",true);
-		
 		return mv;
 	}
 	

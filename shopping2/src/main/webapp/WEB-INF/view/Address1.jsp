@@ -11,6 +11,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Spring Mvc WebFlow Demo</title>
 		<link href="style.css" rel="stylesheet" type="text/css" />
+		<style>
+		
+		</style>
 	</head>
 
 	<body>
@@ -36,8 +39,8 @@
 					<!-- for triggering webflow events using form submission,
 					 the eventId to be triggered is given in "name" attribute as:
 					-->
-					<input name="_eventId_edit" type="submit" value="Edit" /> 
-					<input name="_eventId_submit" type="submit" value="Confirm Details" /><br />
+					<input name="_eventId_edit" type="submit"  class="btn btn-success" value="Edit" /> 
+					<input name="_eventId_submit" type="submit"  class="btn btn-info" value="Confirm Details" /><br />
 				</sf:form>
 			</fieldset>
 		</div>

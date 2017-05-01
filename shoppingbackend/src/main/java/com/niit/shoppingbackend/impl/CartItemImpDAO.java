@@ -2,6 +2,8 @@ package com.niit.shoppingbackend.impl;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +69,20 @@ List<CartItems> list = sessionfactory.getCurrentSession().createQuery("from Cart
 		cartitem.setId(id);
 		sessionfactory.getCurrentSession().delete(cartitem);
 		
+	}
+	@Override
+	public CartItems getCartItemWithCartAndProduct(int productid, int cartid) {
+		// TODO Auto-generated method stub
+		try{
+		Query q=sessionfactory.getCurrentSession().createQuery("From CartItems where cart_id=:cartid and product_id=:proid");
+		q.setParameter("cartid", cartid);
+		q.setParameter("proid", productid);
+		return (CartItems)q.getSingleResult();
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+			return null;
+		}
 	}
 
 		//return sessionfactory.getCurrentSession().createQuery("from CartItems",CartItems.class).list();

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-inverse">
-		<div c lass="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
 	            <div class="vertical-align">  	
 				<a class="navbar-brand" href="#"><img src="" /></a>
 			</div>

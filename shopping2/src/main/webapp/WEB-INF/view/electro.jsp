@@ -34,6 +34,7 @@
 	background-color: #2f2f2f;
 	color: #fff;
 }
+ 
 </style>
 </head>
 <body>
@@ -51,7 +52,7 @@
 					<th>Price</th>
 					<th></th>
 					<th>VIEW</th>
-					<th>ADD TO CART</th>
+<!-- 					<th>ADD TO CART</th>-->
 					
 				</tr>
 			</thead>
@@ -81,7 +82,10 @@
 												data : 'desc'
 											},
 											{
-												data : 'price'
+												data : 'price',
+												mRender : function(data ,type,row){
+													return '&#8377; '+data
+												}
 											},
 											{
 												data : null,
@@ -100,26 +104,17 @@
 												}
 
 											}
-											,
-											{
+											
+											/*,{
 	                                         data : null,
                                             	mRender : function(data, type,
 			                                     row) {
 		                                       return '<a href="/shopping2/customer/elec4/'+row.id+'" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="">ADD TO CART</a>';
 	                                             }
 
-                                            }
+                                            }*/
 
-											/*,
-											/*{
-												data : null,
-												mRender : function(data, type,
-														row) {
-													return '<a href="/shopping2/cart/elec2/'+row.id+'/cart" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=""></a>';
-												}
-
-											}*/
-
+											
 											
 											
 									]

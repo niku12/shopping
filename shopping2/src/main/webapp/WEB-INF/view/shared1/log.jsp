@@ -10,7 +10,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse ">
 	<div class="container-fluid">
 		<div class="vertical-align">
 			<a class="navbar-brand" href="#"><img src="" /></a>

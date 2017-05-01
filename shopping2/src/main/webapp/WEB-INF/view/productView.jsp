@@ -1,4 +1,4 @@
-
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@page isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
@@ -33,16 +33,16 @@
 	background-color: #2f2f2f;
 	color: #fff;
 }
+ 
 </style>
 
 </head>
 <body>
 <%@include file="./shared1/log.jsp" %>
-<table width="120%" height="120%">
+ <table width="120%" height="120%">
   <tr><td width="120%" height="120%"></td></tr>
 
 </table>
-
 	<center><table>
 	   <th></th>
 	   <th>Product Id</th>
@@ -55,6 +55,12 @@
 			<td width="200px" height="200px">${product.name}</td>
 			<td width="200px" height="200px">${product.desc}</td>
 			<td width="200px" height="200px">${product.price}</td>
+			                                <td>   <a href="/shopping2/customer/elec4/${product.id}" role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="">ADD TO CART</a>'</td>
+	                                            
+
+                                            
+
+			
 		</tr>
 		</table></center>
 		<%@include file="./shared1/footer.jsp" %>

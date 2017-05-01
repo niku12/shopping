@@ -19,7 +19,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
-	sRrc="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${css}/style.css">
 <!-- style for carousel -->
   <style>
@@ -35,10 +35,9 @@
   .carousel .item {
   height: 300px;
 }
-
-
-  </style>
  
+  </style>
+
 </head>
 <body>
 <!-- home nav -->

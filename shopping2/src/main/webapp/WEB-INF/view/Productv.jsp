@@ -1,4 +1,3 @@
-
 <%@page isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
@@ -34,6 +33,7 @@
 	background-color: #2f2f2f;
 	color: #fff;
 }
+ 
 </style>
 </head>
 <body>
@@ -64,14 +64,7 @@
 				</tr>
 			</thead>
 		</table>
-		<%--	<c:forEach items="${pro}" var="product">
-					<tr>
-						<td><img src="assert/image/images67.jpg"
-							style="height: 20px; width: 20px" /></td>
-						<td><a href="#" class="list-group-item">${product.name}</a></td>
-						<td><input type="submit" value="AddToCart" /></td>
-				</c:forEach> --%>
-
+	
 
 		<script type="text/javascript">
 			$(function() {

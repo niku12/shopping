@@ -32,6 +32,8 @@
       background-color: #2f2f2f;
       color: #fff;
   }
+ 
+  
   </style>
  
 </head>
@@ -45,7 +47,7 @@
    <h1>About Us</h1>
   <hr/>
   <h2>
-				<a href="home" align="right">Home</a>
+				<a href="home">Home</a>
 			</h2>
 <div class="row row-centered">
 
